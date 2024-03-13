@@ -1,19 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ocian_net.Models;
 
 namespace ocian_net.Data
 {
     public class AppDbContext : DbContext
-    {
-        public DbSet<CommonFormModel> CommonForm { get; set; }
+    {      
+        
+        public DbSet<FormSupport> FormSupport { get; set; }
+        public DbSet<FormContactUs> FormContactUs { get; set; }
+        public DbSet<FormProposal> FormProposal { get; set; } 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Server=127.0.0.1;Port=5432;Database=ocian_db;User Id=postgres;Password=root;");
+        {   
+            var dotEnv = new DotEnv();
+            var url = $"Server={dotEnv.SERVER};Port={dotEnv.PORT};Database={dotEnv.DATABASE_NAME};User Id={dotEnv.DB_USER};Password={dotEnv.DB_PASSWORD};";
+            optionsBuilder.UseNpgsql(url);
             base.OnConfiguring(optionsBuilder);
         }
     }
