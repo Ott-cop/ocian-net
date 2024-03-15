@@ -24,7 +24,6 @@
 /home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.ocian-net.props
 /home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/staticwebassets.pack.json
 /home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/scopedcss/bundle/ocian-net.styles.css
-/home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/ocian-net.csproj.CopyComplete
 /home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/ocian-net.dll
 /home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/refint/ocian-net.dll
 /home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/ocian-net.pdb
@@ -108,3 +107,4 @@
 /home/ox4/Development/Programming/ocian-net/bin/Debug/net8.0/MimeKit.dll
 /home/ox4/Development/Programming/ocian-net/bin/Debug/net8.0/DotNetEnv.dll
 /home/ox4/Development/Programming/ocian-net/bin/Debug/net8.0/Sprache.dll
+/home/ox4/Development/Programming/ocian-net/obj/Debug/net8.0/ocian-net.csproj.Up2Date

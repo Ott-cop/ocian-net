@@ -8,39 +8,38 @@ using ocian_net.Data;
 using ocian_net.Models;
 
 namespace ocian_net.Controllers
-{
-    
+{   
     [ApiController]
     [Route("api/")]
     public class FormsController : ControllerBase
     {
         [HttpPost("send_proposal")]
-        public async Task<IActionResult> Proposal(AppDbContext _context, FormProposal input)
+        public async Task<IActionResult> Proposal(AppDbContext _context, FormProposal input, CancellationToken ct)
         {
             var newForm = new FormProposalDTO(input);
-            await _context.FormProposal.AddAsync(newForm.Form);
-            await _context.SaveChangesAsync();
+            await _context.FormProposal.AddAsync(newForm.Form, ct);
+            await _context.SaveChangesAsync(ct);
 
             return Ok(newForm.Form);
         }
 
 
         [HttpPost("send_support")]
-        public async Task<IActionResult> Support(AppDbContext _context, FormSupport input)
+        public async Task<IActionResult> Support(AppDbContext _context, FormSupport input, CancellationToken ct)
         {
             var newForm = new FormSupportDTO(input);
-            await _context.FormSupport.AddAsync(newForm.Form);
-            await _context.SaveChangesAsync();
+            await _context.FormSupport.AddAsync(newForm.Form, ct);
+            await _context.SaveChangesAsync(ct);
 
             return Ok(newForm.Form);
         }
 
         [HttpPost("send_contact_us")]
-        public async Task<IActionResult> ContactUs(AppDbContext _context, FormContactUs input)
+        public async Task<IActionResult> ContactUs(AppDbContext _context, FormContactUs input, CancellationToken ct)
         {
             var newForm = new FormContactUsDTO(input);
-            await _context.FormContactUs.AddAsync(newForm.Form);
-            await _context.SaveChangesAsync();
+            await _context.FormContactUs.AddAsync(newForm.Form, ct);
+            await _context.SaveChangesAsync(ct);
 
             return Ok(newForm.Form);
         }
@@ -48,9 +47,8 @@ namespace ocian_net.Controllers
         [HttpPost("work_with_us")]
         public async Task<IActionResult> WorkWithUs([FromForm] FormWorkWithUs form)
         {
-            var dotEnv = new DotEnv();
-
-
+            DotEnv dotEnv = new DotEnv();
+            
             if (form.File == null || form.File.Length <= 0)
             {
                 return BadRequest("No file was uploaded");
@@ -69,7 +67,7 @@ namespace ocian_net.Controllers
             {
                 await form.File.CopyToAsync(fileStream);
             }
-
+            
             var filetype = form.File.ContentType;
             if ((filetype != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") && 
                 (filetype != "application/pdf") && 

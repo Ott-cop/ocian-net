@@ -5,6 +5,7 @@ namespace ocian_net.Data
 {
     public class AppDbContext : DbContext
     {      
+        readonly DotEnv dotEnv = new DotEnv();
         
         public DbSet<FormSupport> FormSupport { get; set; }
         public DbSet<FormContactUs> FormContactUs { get; set; }
@@ -12,7 +13,6 @@ namespace ocian_net.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {   
-            var dotEnv = new DotEnv();
             var url = $"Server={dotEnv.SERVER};Port={dotEnv.PORT};Database={dotEnv.DATABASE_NAME};User Id={dotEnv.DB_USER};Password={dotEnv.DB_PASSWORD};";
             optionsBuilder.UseNpgsql(url);
             base.OnConfiguring(optionsBuilder);

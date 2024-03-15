@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ocian-net")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5d9907e823b1cd63bc04bfdfa5d0f0877e5ece9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a58f5882cb063e68da6540db71730655869bcb8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ocian-net")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ocian-net")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
